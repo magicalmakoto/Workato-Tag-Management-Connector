@@ -39,8 +39,6 @@ A Workato custom connector for the tag endpoints of the Workato Developer API.  
 
 The connection test calls `GET /api/tags?per_page=1`.
 
-## Behavior notes
-
 ## Limits
 
 These are the Connector SDK quotas that apply to this connector.
