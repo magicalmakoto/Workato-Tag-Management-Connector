@@ -41,22 +41,6 @@ The connection test calls `GET /api/tags?per_page=1`.
 
 ## Behavior notes
 
-### Update tag
-
-The API requires a title on every update and has no endpoint that gets one tag. The action looks up the current tag first, then sends your changes over its values. Fields you leave blank keep their current values. The action counts as one Workato task.
-
-### Manage tag assignments
-
-The API tags recipes and connections only. Choose the operation and asset type first. The action then shows only the matching fields and marks them required.
-
-The action also checks the values at runtime, because a required field can still map to an empty datapill.
-
-Workato array fields hold objects, not plain values. Tag handles and IDs are comma-separated text for that reason.
-
-### Search tags
-
-The action reads every page and returns all matches. List tags returns no total, so a page with fewer than 100 tags ends the search.
-
 ## Limits
 
 These are the Connector SDK quotas that apply to this connector.
@@ -68,7 +52,7 @@ These are the Connector SDK quotas that apply to this connector.
 | Compile timeout | 5 seconds |
 | Connector code size | 10 MB |
 
-The Developer API rate limits were not available when this connector was written. Check the rate limits on the Workato Developer API pages.
+These are the documented Developer API rate limits when this connector was written. Your environment may have different limits, or the limits may have been changed since this was written.
 
 ## Source documentation
 
