@@ -128,6 +128,37 @@
 			end
 		},
 
+		# Search tags can already do this with blank filters, but nobody looks for "list" under "search".
+		list_tags: {
+			title: 'List tags',
+			subtitle: 'Get all tags in your Workato workspace',
+
+			description: lambda do |_input, _picklist_label|
+				"List <span class='provider'>tags</span> in <span class='provider'>Workato</span>"
+			end,
+
+			help: 'Returns every tag in the workspace, with its author and assignment count. ' \
+				'To filter or sort the results, use <b>Search tags</b>.',
+
+			input_fields: lambda do |_object_definitions, _connection, _config_fields|
+				[]
+			end,
+
+			execute: lambda do |_connection, _input|
+				{ tags: call('list_tags', {}) }
+			end,
+
+			output_fields: lambda do |object_definitions, _connection, _config_fields|
+				[
+					{ name: 'tags', type: 'array', of: 'object', properties: object_definitions['tag'] }
+				]
+			end,
+
+			sample_output: lambda do |_connection, _input|
+				{ tags: [call('sample_tag')] }
+			end
+		},
+
 		manage_tag_assignments: {
 			title: 'Manage tag assignments',
 			subtitle: 'Add tags to or remove tags from recipes and connections',
