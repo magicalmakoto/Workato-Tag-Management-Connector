@@ -6,6 +6,7 @@ A Workato custom connector for the tag endpoints of the Workato Developer API.  
 
 | Action | Endpoint |
 | --- | --- |
+| List tags | `GET /api/tags` |
 | Search tags | `GET /api/tags` |
 | Create tag | `POST /api/tags` |
 | Update tag | `PUT /api/tags/:handle` |
