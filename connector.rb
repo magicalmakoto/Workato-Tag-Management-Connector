@@ -465,8 +465,10 @@
 
 		# The API has no "get one tag" endpoint, so this filters List tags by handle.
 		fetch_tag: lambda do |handle|
-			tag = call('list_tags', { q: { handle_in: [handle] } }).first
-			tag.presence || error("No tag found with handle #{handle}.")
+			# Match the handle exactly instead of taking the first result. If the API ignored the
+			# filter, .first would return an unrelated tag and the update would overwrite it.
+			tag = call('list_tags', { q: { handle_in: [handle] } }).find { |item| item['handle'] == handle }
+			tag.presence || error("No tag found with handle #{handle}. It may have been deleted.")
 		end,
 
 		id_list_field: lambda do |name, label|
