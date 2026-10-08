@@ -1,6 +1,6 @@
 # Workato Tag Management Connector
 
-A Workato custom connector for the tag endpoints of the Workato Developer API.
+A Workato custom connector for the tag endpoints of the Workato Developer API.  This was created as the native RecipeOps connector allows some actions to be filter to recipes with certain tags, but has no way to see what tags exist on recipes outside the trigger, or other ways to do automatic tag management.
 
 ## Actions
 
